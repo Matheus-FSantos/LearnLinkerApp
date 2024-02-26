@@ -1,15 +1,20 @@
 import { NativeWindStyleSheet } from 'nativewind';
 import { SafeAreaView, Text, View } from 'react-native';
+import { useDinamicTitle } from './hooks/useDinamicTitle';
+
+/* COMPONENTS */
+import { Header } from './components/core/header';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
-export default function App() {
+export default function App(): React.ReactElement {
+  useDinamicTitle("Início");
+
   return (
-    <SafeAreaView className='bg-slate-950 w-screen flex-1 items-center justify-center'>
-      <Text className='text-slate-100 text-2xl font-bold'>Hello, World!!!</Text>
-      <Text className='text-slate-500 font-semibold'>Expo + TailwindCSS</Text>
+    <SafeAreaView className="w-screen">
+      <Header />
     </SafeAreaView>
   );
 }
